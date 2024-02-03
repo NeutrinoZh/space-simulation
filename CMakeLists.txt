@@ -14,12 +14,12 @@ add_subdirectory(./wind/)
 
 set(HEADERS
     ./include/space-simulation/simulation.h
-    ./include/space-simulation/renderer.h
+    ./include/space-simulation/camera.h
 ) 
 
 set(SOURCES
     ./src/simulation.cpp
-    ./src/renderer.cpp
+    ./src/camera.cpp
     ./src/main.cpp
 ) 
 

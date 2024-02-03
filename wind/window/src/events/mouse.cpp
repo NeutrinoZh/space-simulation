@@ -60,15 +60,15 @@ bool Mouse::isButtonDown(int _button) {
     return false;
 }
 
-vec2 Mouse::position() {
+glm::vec2 Mouse::position() {
     return _internal::MouseEventHandler::s_position;
 }
 
-vec2 Mouse::offset() {
+glm::vec2 Mouse::offset() {
     return _internal::MouseEventHandler::s_offset;
 }
 
-vec2 Mouse::scroll() {
+glm::vec2 Mouse::scroll() {
     return _internal::MouseEventHandler::s_scroll;
 }
 

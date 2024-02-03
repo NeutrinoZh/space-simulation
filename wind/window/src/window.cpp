@@ -128,12 +128,12 @@ void Window::setTitle(const char* _title) {
     m_title = _title;
 }
 
-void Window::setSize(ivec2 _size) {
+void Window::setSize(glm::ivec2 _size) {
     glfwSetWindowSize(m_window, _size.x, _size.y);
     glViewport(0, 0, _size.x, _size.y);
 }
 
-void Window::setPosition(ivec2 _position) {
+void Window::setPosition(glm::ivec2 _position) {
     glfwSetWindowPos(m_window, _position.x, _position.y);
 }
 
@@ -157,13 +157,13 @@ const char* Window::title() {
     return m_title;
 }
 
-ivec2 Window::size() {
+glm::ivec2 Window::size() {
     int w, h;
     glfwGetWindowPos(m_window, &w, &h);
     return {w, h};
 }
 
-ivec2 Window::position() {
+glm::ivec2 Window::position() {
     int x, y;
     glfwGetWindowPos(m_window, &x, &y);
     return {x, y};
