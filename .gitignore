@@ -1,0 +1,10 @@
+/build/
+/install/
+/logs/
+/.cache/
+/**/*/.cache/
+
+*.bundle
+CMakeUserPresets.json
+
+.history

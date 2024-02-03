@@ -1,0 +1,12 @@
+[requires]
+spdlog/1.13.0
+glad/0.1.36
+glfw/3.3.8
+glm/cci.20230113
+
+[generators]
+CMakeDeps 
+CMakeToolchain
+
+[layout]
+cmake_layout
