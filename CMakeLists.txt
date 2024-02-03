@@ -2,11 +2,13 @@ cmake_minimum_required(VERSION 3.22)
 
 project(space-simulation)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 message("Building with CMake version: ${CMAKE_VERSION}")
+
+add_subdirectory(./wind/)
 
 # executable
 
@@ -26,6 +28,14 @@ target_include_directories(${PROJECT_NAME} PRIVATE ./include/)
 
 # dependencies
 
+## internal 
+target_include_directories(${PROJECT_NAME} PUBLIC ./src/utils/include/)
+target_link_libraries(${PROJECT_NAME} PUBLIC wind-utils)
+
+target_include_directories(${PROJECT_NAME} PUBLIC ./src/window/include/)
+target_link_libraries(${PROJECT_NAME} PUBLIC wind-window)
+
+## external
 find_package(glad CONFIG REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE glad::glad)
 

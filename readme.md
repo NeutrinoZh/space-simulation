@@ -14,7 +14,7 @@ The simulation includes the following features:
 
 ### Prerequisites
 
-- C++11 compiler
+- C++23 compiler
 - Conan package manager
 - CMake
 
