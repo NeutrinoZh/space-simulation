@@ -5,6 +5,8 @@ namespace space {
 namespace {
 
 static float m_scope = 1.f;
+static glm::vec2 m_position = glm::vec2();
+
 static glm::ivec2 m_projectionPortSize = glm::ivec2();
 static glm::mat4 m_orthoMatrix = glm::mat4(1);
 static glm::mat4 m_viewMatrix = glm::mat4(1);
@@ -32,9 +34,19 @@ void Camera::setScope(float _scope) {
     setOrtho(m_projectionPortSize, _scope);
 }
 
+float Camera::getScope() {
+    return m_scope;
+}
+
 void Camera::setPosition(glm::vec2 _position) {
+    m_position = _position;
+
     m_viewMatrix = glm::mat4(1);
     m_viewMatrix = glm::translate(m_viewMatrix, glm::vec3(_position, 0));
+}
+
+glm::vec2 Camera::getPosition() {
+    return m_position;
 }
 
 } // namespace space

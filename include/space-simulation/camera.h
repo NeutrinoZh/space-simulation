@@ -14,8 +14,12 @@ class Camera {
 public:
     static void clear(glm::vec4 color);
     static void setOrtho(glm::ivec2 size, float scope = 1.f);
-    static void setPosition(glm::vec2 position);
+
     static void setScope(float scope);
+    static float getScope();
+
+    static void setPosition(glm::vec2 position);
+    static glm::vec2 getPosition();
 };
 
 } // namespace space
