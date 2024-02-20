@@ -1,4 +1,6 @@
 #include "space-simulation/camera.h"
+#include "space-simulation/simulation.h"
+
 #include <window/window.h>
 
 namespace space {
@@ -46,6 +48,7 @@ int main() {
 
     // Application components
     CameraControll cameraControll;
+    PhysicsSimulation simulation;
 
     // Main loop
     while (Window::update()) {
@@ -56,6 +59,7 @@ int main() {
 
         // Update all aplication components
         cameraControll.update();
+        simulation.update();
 
         Window::show();
     }

@@ -3,10 +3,9 @@
 namespace space {
 
 struct Particle {
-    glm::dvec2 position;
-    double weight;
-    double size;
+    static constexpr float size = 2.f;
 
+    glm::dvec2 position = {0, 0};
     glm::dvec2 velocity = {0, 0};
     glm::dvec2 acceleration = {0, 0};
 };
@@ -18,25 +17,28 @@ private:
     static ParticleRegister s_Instance;
 
 public:
-    static void setCapacity(size_t size) {
-        s_Instance.m_particles.reserve(size + 1);
-    }
+    static void setCapacity(size_t size);
+    static void spawnParticle(glm::dvec2 _position, double _weight);
 
-    static void spawnParticle(glm::dvec2 _position, double _weight) {
-        s_Instance.m_particles.push_back({_position, _weight, 1.f});
-    }
-
-    auto begin() {
+    inline auto begin() {
         return m_particles.begin();
     }
 
-    auto end() {
+    inline auto end() {
         return m_particles.end();
     }
 
-    static ParticleRegister& singlton() {
+    static inline ParticleRegister& singlton() {
         return s_Instance;
     }
+};
+
+class PhysicsSimulation {
+private:
+    const double G = 1.f;
+
+public:
+    void update();
 };
 
 } // namespace space
