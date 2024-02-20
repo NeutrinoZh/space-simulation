@@ -8,7 +8,7 @@ void ParticleRegister::setCapacity(size_t _size) {
     s_Instance.m_particles.reserve(_size + 1);
 }
 
-void ParticleRegister::spawnParticle(glm::dvec2 _position, double _weight) {
+void ParticleRegister::spawnParticle(glm::dvec2 _position) {
     s_Instance.m_particles.push_back({_position});
 }
 
@@ -45,8 +45,7 @@ PhysicsSimulation::PhysicsSimulation() noexcept {
     for (int i = 0; i < numParticles; ++i) {
         glm::dvec2 position{static_cast<double>(-10000 + rand() % 20000),
                             static_cast<double>(-10000 + rand() % 20000)};
-        double weight = 1 + rand() % 10;
-        ParticleRegister::spawnParticle(position, weight);
+        ParticleRegister::spawnParticle(position);
     }
 }
 
