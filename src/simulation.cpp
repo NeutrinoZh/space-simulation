@@ -38,4 +38,16 @@ void PhysicsSimulation::update() {
     }
 }
 
+PhysicsSimulation::PhysicsSimulation() noexcept {
+    const int numParticles = 2500;
+
+    ParticleRegister::setCapacity(numParticles);
+    for (int i = 0; i < numParticles; ++i) {
+        glm::dvec2 position{static_cast<double>(-10000 + rand() % 20000),
+                            static_cast<double>(-10000 + rand() % 20000)};
+        double weight = 1 + rand() % 10;
+        ParticleRegister::spawnParticle(position, weight);
+    }
+}
+
 } // namespace space
