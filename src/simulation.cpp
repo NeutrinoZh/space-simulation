@@ -1,16 +1,7 @@
+#include <space-simulation/register.h>
 #include <space-simulation/simulation.h>
 
 namespace space {
-
-ParticleRegister ParticleRegister::s_Instance;
-
-void ParticleRegister::setCapacity(size_t _size) {
-    s_Instance.m_particles.reserve(_size + 1);
-}
-
-void ParticleRegister::spawnParticle(glm::dvec2 _position) {
-    s_Instance.m_particles.push_back({_position});
-}
 
 void PhysicsSimulation::update() {
     for (auto& i : ParticleRegister::singlton()) {
