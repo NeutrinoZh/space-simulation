@@ -4,6 +4,7 @@
 #include "space-simulation/renderer.h"
 #include "space-simulation/simulation.h"
 
+#include <GL/gl.h>
 #include <window/window.h>
 
 namespace space {
@@ -65,11 +66,12 @@ int main() {
         if (Keyboard::isKeyDown(GLFW_KEY_ESCAPE))
             Window::close();
 
-        Camera::clear({0.1f, 0.1f, 0.1f, 1.f});
-
         // Update all aplication components
         cameraControll.update();
         simulation.update();
+
+        // Draw
+        Camera::clear({0.1f, 0.1f, 0.1f, 1.f});
 
         for (int i = 0; i < c_numParticles; ++i)
             renderer.setPosition(i,
