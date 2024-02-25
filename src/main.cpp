@@ -1,4 +1,5 @@
 #include "space-simulation/camera.h"
+#include "space-simulation/default-res.h"
 #include "space-simulation/simulation.h"
 
 #include <window/window.h>
@@ -44,6 +45,8 @@ int main() {
         self->size = {1920, 1080};
     });
 
+    DefaultRes::load();
+
     Camera::setOrtho(Window::size());
 
     // Application components
@@ -63,6 +66,8 @@ int main() {
 
         Window::show();
     }
+
+    DefaultRes::free();
 
     return 0;
 }
