@@ -20,6 +20,9 @@ public:
 
     static void setPosition(glm::vec2 position);
     static glm::vec2 getPosition();
+
+    static glm::mat4& getProj();
+    static glm::mat4& getView();
 };
 
 } // namespace space

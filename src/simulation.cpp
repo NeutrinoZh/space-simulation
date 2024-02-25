@@ -29,11 +29,9 @@ void PhysicsSimulation::update() {
     }
 }
 
-PhysicsSimulation::PhysicsSimulation() noexcept {
-    const int numParticles = 2500;
-
-    ParticleRegister::setCapacity(numParticles);
-    for (int i = 0; i < numParticles; ++i) {
+PhysicsSimulation::PhysicsSimulation(int _numParticles) noexcept {
+    ParticleRegister::setCapacity(_numParticles);
+    for (int i = 0; i < _numParticles; ++i) {
         glm::dvec2 position{static_cast<double>(-10000 + rand() % 20000),
                             static_cast<double>(-10000 + rand() % 20000)};
         ParticleRegister::spawnParticle(position);

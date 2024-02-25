@@ -4,6 +4,7 @@
 namespace space {
 
 class ParticleRenderer {
+public:
     ParticleRenderer(std::vector<glm::vec3> vertices,
                      std::vector<uint> indicies, std::vector<glm::vec2> uv,
                      size_t count);

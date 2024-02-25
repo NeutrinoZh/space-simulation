@@ -1,10 +1,14 @@
 #include "space-simulation/camera.h"
 #include "space-simulation/default-res.h"
+#include "space-simulation/register.h"
+#include "space-simulation/renderer.h"
 #include "space-simulation/simulation.h"
 
 #include <window/window.h>
 
 namespace space {
+
+static const int c_numParticles = 2500;
 
 using namespace wind;
 
@@ -51,7 +55,10 @@ int main() {
 
     // Application components
     CameraControll cameraControll;
-    PhysicsSimulation simulation;
+    PhysicsSimulation simulation(c_numParticles);
+    ParticleRenderer renderer(DefaultRes::getCircle()->vertices,
+                              DefaultRes::getCircle()->indices,
+                              DefaultRes::getCircle()->uv, c_numParticles);
 
     // Main loop
     while (Window::update()) {
@@ -63,6 +70,11 @@ int main() {
         // Update all aplication components
         cameraControll.update();
         simulation.update();
+
+        for (int i = 0; i < c_numParticles; ++i)
+            renderer.setPosition(i,
+                                 ParticleRegister::getParticleById(i).position);
+        renderer.draw(Camera::getProj(), Camera::getView());
 
         Window::show();
     }

@@ -12,4 +12,8 @@ void ParticleRegister::spawnParticle(glm::dvec2 _position) {
     s_Instance.m_particles.push_back({_position});
 }
 
+Particle& ParticleRegister::getParticleById(uint _id) {
+    return s_Instance.m_particles[_id];
+}
+
 } // namespace space

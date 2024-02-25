@@ -20,6 +20,7 @@ private:
 public:
     static void setCapacity(size_t size);
     static void spawnParticle(glm::dvec2 _position);
+    static Particle& getParticleById(uint _id);
 
     inline auto begin() {
         return m_particles.begin();

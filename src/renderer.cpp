@@ -1,3 +1,4 @@
+#include <space-simulation/default-res.h>
 #include <space-simulation/renderer.h>
 #include <space-simulation/shader.h>
 

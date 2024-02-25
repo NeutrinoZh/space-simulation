@@ -4,25 +4,14 @@
 namespace space {
 
 struct Mesh {
-private:
-    struct Vertex {
-        glm::vec3 position;
-        glm::vec2 tex_coords;
-    };
-
-private:
-    uint m_VAO, m_VBO, m_EBO;
-    std::vector<Vertex> m_vertices;
-    std::vector<uint> m_indices;
-
 public:
-    Mesh(std::vector<glm::vec3> vertices, std::vector<uint> indicies,
-         std::vector<glm::vec2> uv);
-    ~Mesh();
+    std::vector<glm::vec3> vertices;
+    std::vector<glm::vec2> uv;
+    std::vector<uint> indices;
 
-    uint vao() const;
-    uint ebo() const;
-    uint size() const;
+    Mesh(std::vector<glm::vec3> vertices, std::vector<uint> indicies,
+         std::vector<glm::vec2> uv)
+        : vertices(vertices), uv(uv), indices(indicies){};
 };
 
 } // namespace space

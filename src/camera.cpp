@@ -49,4 +49,12 @@ glm::vec2 Camera::getPosition() {
     return m_position;
 }
 
+glm::mat4& Camera::getProj() {
+    return m_orthoMatrix;
+}
+
+glm::mat4& Camera::getView() {
+    return m_viewMatrix;
+}
+
 } // namespace space

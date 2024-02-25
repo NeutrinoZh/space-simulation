@@ -7,7 +7,7 @@ private:
     const double G = 1.f;
 
 public:
-    PhysicsSimulation() noexcept;
+    PhysicsSimulation(int _numParticles) noexcept;
 
     void update();
 };

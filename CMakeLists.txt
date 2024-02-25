@@ -16,12 +16,19 @@ set(HEADERS
     ./include/space-simulation/simulation.h
     ./include/space-simulation/register.h
     ./include/space-simulation/camera.h
+    ./include/space-simulation/mesh.h
+    ./include/space-simulation/renderer.h
+    ./include/space-simulation/default-res.h
+    ./include/space-simulation/shader.h
 ) 
 
 set(SOURCES
     ./src/simulation.cpp
     ./src/register.cpp
     ./src/camera.cpp
+    ./src/default-res.cpp
+    ./src/renderer.cpp
+    ./src/shader.cpp
     ./src/main.cpp
 ) 
 
